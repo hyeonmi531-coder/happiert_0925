@@ -57,7 +57,7 @@ html > body {
 }
 
 .header-top-banner {
-  postion: fixed;
+  position: fixed;
   top: 0;
   inset-inline: 0;
   background-color: #be201f;
@@ -70,4 +70,83 @@ html > body {
 
 a {
   color: #fff;
+}
+
+.top-bar {
+  height: 100px;
+  position: fixed;
+  top: 45px;
+  inset-inline: 0;
+}
+.top-bar .inner {
+  max-width: 100%;
+  height: 100%;
+  padding-inline: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.top-bar__menu-wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.top-bar__menu-wrap .menu-link {
+  display: block;
+  font-size: 1.25rem;
+  color: #be201f;
+  font-weight: 700;
+  white-space: nowrap;
+  position: relative;
+  padding-block: 0.7rem;
+}
+.top-bar__menu-wrap .menu-link:hover::after {
+  width: 100%;
+}
+.top-bar__menu-wrap .menu-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #be201f;
+  transition: width 0.5s;
+}
+
+.logo .logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo .logo-wrap img {
+  max-width: 300px;
+  max-height: 44px;
+}
+.logo .logo-wrap img .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo .logo-wrap img .logo img {
+  max-width: 300px;
+  max-height: 44px;
+}
+.logo .top-bar__right {
+  background-color: red;
+}
+
+.util-menu {
+  height: 100%;
+}
+.util-menu ul {
+  gap: 0 2rem;
+}
+.util-menu li {
+  flex-shrink: 0;
+}
+.util-menu a {
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
