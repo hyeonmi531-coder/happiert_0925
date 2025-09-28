@@ -72,3 +72,21 @@
 html > body {
   font-family: "Pretendard";
 }
+$color-main: #be201f;
+
+.header-top-banner {
+  postion: fixed;
+  top: 0;
+  inset-inline: 0;
+  // left,right:0;
+  background-color: $color-main;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 950;
+}
+
+a {
+  color: #fff;
+}
