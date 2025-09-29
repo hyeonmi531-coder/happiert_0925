@@ -4,11 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>해피어트</title>
-    <!-- 테일윈드 css 불러오기 -->
+
+    <!-- 스와이퍼 라이브러리 불러오기 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- 테일윈드 불러오기 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- 공통 js연결 -->
+
+    <!-- 공통 js 연결 -->
     <script defer src="js/script.js"></script>
-    <!-- 공통css연결 -->
+
+    <!-- 공통 css 연결 -->
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -17,58 +27,232 @@
       <!-- 헤더 구현 -->
       <div class="header-wrap">
         <div class="header-top-banner">
-          <a href="#">1초 회원 가입하고 3만원 쿠폰팩 받기</a>
+          <a href="#"> 1초 회원 가입하고 3만원 쿠폰팩 받기 </a>
         </div>
         <header class="top-bar">
           <div class="inner">
-           <div class="top-bar__left flex-1">
-              <!-- 메뉴공간 -->
-               <nav class="top-bar__menu-wrap">
-                  <ul class="flex gap-[2rem]">
-                    <li><a href="#" class="menu-link">Brand</a></li>
-                    <li><a href="#" class="menu-link">Shop</a></li>
-                    <li><a href="#" class="menu-link">Review</a></li>
-                    <li><a href="#" class="menu-link">Research</a></li>
-                    <li><a href="#" class="menu-link">Community</a></li>
-                  </ul>    
-               </nav>
-           </div>
-         
-           <div class="top-bar__mid">
-             <!-- 로고 공간 -->
+            <div class="top-bar__left flex-1">
+              <!-- 메뉴 공간 -->
+              <nav class="top-bar__menu-wrap">
+                <ul class="flex gap-[2rem]">
+                  <li><a href="#" class="menu-link">Brand</a></li>
+                  <li><a href="#" class="menu-link">Shop</a></li>
+                  <li><a href="#" class="menu-link">Review</a></li>
+                  <li><a href="#" class="menu-link">Research</a></li>
+                  <li><a href="#" class="menu-link">Community</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="top-bar__mid">
+              <!-- 로고 공간 -->
               <div class="logo-wrap h-full">
                 <a href="#" class="logo">
-                  <img src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/92081b401a76a279ca9c8a738ec47067.png" alt="해피어트 로고">
+                  <img
+                    src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/92081b401a76a279ca9c8a738ec47067.png"
+                    alt="해피어트 로고"
+                  />
                 </a>
               </div>
-           </div>
-          
-           <div class="top-bar__right flex-1 flex justify-end">
-             <!-- 유틸메뉴 공간 -->
+            </div>
+            <div class="top-bar__right flex-1 flex justify-end">
+              <!-- 유틸 메뉴 공간 -->
               <nav class="util-menu">
                 <ul class="flex h-full">
                   <li>
                     <a href="#" class="search-link">
-                    <img src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_search.png" alt="검색아이콘">
-                  </a>
-                </li>
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_search.png"
+                        alt="검색 아이콘"
+                      />
+                    </a>
+                  </li>
                   <li>
                     <a href="#" class="mypage-link">
-                    <img src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_member.png" alt="마이페이지 아이콘">
-                  </a>
-                </li>
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_member.png"
+                        alt="마이페이지 아이콘"
+                      />
+                    </a>
+                  </li>
                   <li>
                     <a href="#" class="cart-link">
-                    <img src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_cart.png" alt="장바구니 아이콘">
-                  </a>
-                </li>
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/image/ico_cart.png"
+                        alt="장바구니 아이콘"
+                      />
+                    </a>
+                  </li>
                 </ul>
               </nav>
-           </div>
-           </div>
+            </div>
           </div>
         </header>
       </div>
+
+      <main class="content-wrap">
+        <section class="main-banner">
+          <div class="inner">
+            <div class="text-box">
+              <p class="title">
+                살 찌는 장내 환경을 바꾸는
+                <br />
+                신개념 다이어트 쉐이크
+              </p>
+              <p class="desc">[식욕 조절 &amp; 지방 축적 억제] 물질 함유</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="product-list-wrap">
+          <div class="inner">
+            <div class="swiper">
+              <ul class="swiper-wrapper">
+                <!-- li.swiper-slide*6>(div.prod-img-box>a[href="#"]>img)+div.text-box>a[href="#"]{상품명}+div.price-wrap>(div.price-box>p.after-sale-price{₩100,000}+p.before-sale-price{₩100,000})+div.discount-box>span{10%} -->
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241226/482afff1d2597cd23651adc4073982a3.jpg"
+                        alt="장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크 곡물맛 (2개월 플랜/3통)"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (2개월 플랜/3통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩47,500</p>
+                        <p class="before-sale-price">₩59,000</p>
+                      </div>
+                      <div class="discount-box">
+                        <span>19%</span>
+                        <span>off</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241226/e24e2d4c6dcfeb2d768e883f1a25f20f.jpg"
+                        alt="장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크 곡물맛 (3주 플랜/1통)"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (3주 플랜/1통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩221,000</p>
+                        <p class="before-sale-price">₩295,000</p>
+                      </div>
+                      <div class="discount-box"><span>10%</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241108/7430157439c9f5d758f3a74dd8e77ff9.jpg"
+                        alt="장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크 곡물맛 (4개월 플랜/5통)"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (4개월 플랜/5통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩138,000</p>
+                        <p class="before-sale-price">₩177,000</p>
+                      </div>
+                      <div class="discount-box"><span>10%</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#"
+                      ><img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241108/7430157439c9f5d758f3a74dd8e77ff9.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (2개월 플랜/3통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩100,000</p>
+                        <p class="before-sale-price">₩100,000</p>
+                      </div>
+                      <div class="discount-box"><span>10%</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241226/e24e2d4c6dcfeb2d768e883f1a25f20f.jpg"
+                        alt="장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크 곡물맛 (3주 플랜/1통)"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (3주 플랜/1통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩221,000</p>
+                        <p class="before-sale-price">₩295,000</p>
+                      </div>
+                      <div class="discount-box"><span>10%</span></div>
+                    </div>
+                  </div>
+                </li>
+                <li class="swiper-slide">
+                  <div class="prod-img-box">
+                    <a href="#">
+                      <img
+                        src="https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/product/big/20241108/7430157439c9f5d758f3a74dd8e77ff9.jpg"
+                        alt="장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크 곡물맛 (4개월 플랜/5통)"
+                      />
+                    </a>
+                  </div>
+                  <div class="text-box">
+                    <a href="#"
+                      >장내 환경에 초점을 맞춘 해피어트 마이크로바이옴 쉐이크
+                      곡물맛 (4개월 플랜/5통)</a
+                    >
+                    <div class="price-wrap">
+                      <div class="price-box">
+                        <p class="after-sale-price">₩138,000</p>
+                        <p class="before-sale-price">₩177,000</p>
+                      </div>
+                      <div class="discount-box"><span>10%</span></div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>

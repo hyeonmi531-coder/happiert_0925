@@ -69,26 +69,28 @@
   font-weight: 900;
   font-display: swap;
 }
+
 html > body {
   font-family: "Pretendard";
 }
+
 $color-main: #be201f;
 
+/* 헤더 구현 시작 */
 .header-top-banner {
   position: fixed;
   top: 0;
   inset-inline: 0;
-  // left,right:0;
   background-color: $color-main;
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 950;
-}
 
-a {
-  color: #fff;
+  a {
+    color: #fff;
+  }
 }
 
 .top-bar {
@@ -102,7 +104,6 @@ a {
     height: 100%;
     padding-inline: 5rem;
     display: flex;
-    align-items: center;
   }
 }
 
@@ -118,11 +119,7 @@ a {
     font-weight: 700;
     white-space: nowrap;
     position: relative;
-    padding-block: 0.7rem;
-
-    &:hover::after {
-      width: 100%;
-    }
+    padding-block: 0.5rem;
 
     &::after {
       content: "";
@@ -134,10 +131,18 @@ a {
       background-color: $color-main;
       transition: width 0.5s;
     }
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
-.logo {
-  .logo-wrap {
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+
+  .logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,22 +150,7 @@ a {
     img {
       max-width: 300px;
       max-height: 44px;
-
-      .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-          max-width: 300px;
-          max-height: 44px;
-        }
-      }
     }
-  }
-
-  .top-bar__right {
-    background-color: red;
   }
 }
 
@@ -173,12 +163,110 @@ a {
 
   li {
     flex-shrink: 0;
-    // 주어진 공간에서 압축되지 않겠다는 것
   }
 
   a {
     display: flex;
     height: 100%;
     align-items: center;
+  }
+}
+/* 헤더 구현 끝 */
+
+/* 메인 배너 구현 시작 */
+.main-banner {
+  background-image: url("https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/a28fe238a9d2aef23923b6b4faa6c4f7.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  margin-bottom: 6.25rem;
+
+  .inner {
+    height: 100%;
+    margin-inline: 5rem;
+    position: relative;
+  }
+
+  .text-box {
+    position: absolute;
+    left: 0;
+    top: calc(45px + 100px + 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .title {
+      font-size: 3.125rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.04em;
+    }
+
+    .desc {
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+    }
+  }
+}
+/* 메인 배너 구현 끝 */
+
+.product-list-wrap {
+  .inner {
+    margin-inline: 5rem;
+  }
+
+  .prod-img-box {
+    a {
+      display: block;
+    }
+  }
+  .text-box {
+    margin-top: 1rem;
+
+    a {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $color-main;
+      letter-spacing: -0.04em;
+      transition: opacity 0.5s;
+      word-break: keep-all;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+.price-wrap {
+  .price-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-main;
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
+
+    .before-sale-price {
+      font-weight: 400;
+      color: #e0a8a8;
+      text-decoration: line-through;
+    }
+  }
+  .discount-box {
+    font-size: 1rem;
+    color: $color-main;
+    letter-spacing: -0.04em;
+    padding: 0.565rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border: 1px solid $color-main;
+    border-radius: 100px;
   }
 }
