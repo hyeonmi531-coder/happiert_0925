@@ -73,10 +73,15 @@
 html > body {
   font-family: "Pretendard";
   overflow-x: hidden;
+  background-color: #f7f6f2;
 }
 
 $color-main: #be201f;
 $inner-margin: 5rem;
+
+.inner {
+  margin-inline: 5rem;
+}
 
 /* 헤더 구현 시작 */
 .header-top-banner {
@@ -100,11 +105,11 @@ $inner-margin: 5rem;
   position: fixed;
   top: 45px;
   inset-inline: 0;
+  z-index: 950;
 
   .inner {
     max-width: 100%;
     height: 100%;
-    padding-inline: $inner-margin;
     display: flex;
   }
 }
@@ -186,7 +191,6 @@ $inner-margin: 5rem;
 
   .inner {
     height: 100%;
-    margin-inline: $inner-margin;
     position: relative;
   }
 
@@ -215,10 +219,6 @@ $inner-margin: 5rem;
 /* 메인 배너 구현 끝 */
 
 .product-list-wrap {
-  .inner {
-    margin-inline: $inner-margin;
-  }
-
   .prod-img-box {
     a {
       display: block;
@@ -274,7 +274,7 @@ $inner-margin: 5rem;
   }
 }
 .marketing-section {
-  margin-top: 9.375rem;
+  margin-block: 9.375rem;
 }
 .marquees_wrapper {
   // 	글자가 뚝뚝 끊기듯이 움직이는건 너비가 없었기 때문 너비값 주기
@@ -322,6 +322,31 @@ $inner-margin: 5rem;
 // transform: translateX(0);}
 // 100% {
 // transform: translateX(-50%);}}
+
+@mixin more-box($box-color: $color-main, $hovered-color: #fff) {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+
+  a {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $box-color;
+    letter-spacing: -0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    border: 1px solid $box-color;
+    border-radius: 100px;
+    transition: all 0.5s;
+
+    &:hover {
+      color: $hovered-color;
+      background-color: $box-color;
+    }
+  }
+}
 
 .marketing__content-box {
   margin-top: 6.25rem;
@@ -402,6 +427,208 @@ $inner-margin: 5rem;
           background-color: $color-main;
         }
       }
+    }
+  }
+}
+
+.healthy-section {
+  .content-top-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5.313rem;
+    margin-bottom: 9.375rem;
+  }
+
+  .text-box {
+    flex: 1;
+    font-size: 7.5rem;
+    font-weight: 500;
+    color: $color-main;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 1.5rem;
+
+    .badge {
+      display: inline-flex;
+      padding: 1.2rem 5.45rem;
+      border: 2px solid $color-main;
+      border-radius: 100px;
+    }
+  }
+
+  .icon-box {
+    width: 16.25rem;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+      animation: rotation 10s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.content-bottom-wrap {
+  background-image: url("https://ecimg.cafe24img.com/pg1097b49582155038/happiert/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/8d374422b05976c6c5a54c774e1d7748.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 740px;
+  position: relative;
+
+  .content-bottom__text-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+
+    .title {
+      font-size: 3.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.125rem;
+    }
+
+    .des {
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+      margin-bottom: 5rem;
+      text-align: center;
+    }
+
+    .more-box {
+      @include more-box();
+    }
+  }
+}
+
+#footer {
+  background-color: $color-main;
+
+  .inner {
+    margin: 0;
+    // 위에 마진값 적용시킨게 있으니까 기본값으로 둠
+    padding: 6.25rem 5rem 8.75rem;
+    // 자식요소의 padding값은 부모인 #footer의 높이로 작용한다! 그래서 푸터에 높이값 따로 안줘도 높이가 적용됨
+  }
+
+  .logo-box {
+    margin-bottom: 3.75rem;
+  }
+}
+
+@mixin footer-sub-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.footer__info {
+  .info {
+    &-title {
+      @include footer-sub-title;
+    }
+
+    &-box {
+      letter-spacing: -0.04em;
+      position: relative;
+      padding-inline: 0.3rem;
+      font-size: 1.25rem;
+    }
+
+    &-text {
+      display: inline-block;
+      // inline-block으로인해 애매한 여백이 생김
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: -0.04em;
+      padding-inline: 0.3rem;
+      // padding-inline은 아래 after로 표현한 막대기 바 위치조정위함
+      position: relative;
+
+      &:not(.not-bar)::after {
+        // not-bar가 없는 클래스에만 적용하겠다는 것
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -3px;
+        // 막대기 위치를 transform이나 right로 조정하면 됨
+        transform: translateY(-50%);
+        // 수직정렬을 해줘야 해서 Y값넣음
+        height: 12px;
+        // background-color: #fff; border가 아닌 bgc로 넣어야함!
+        border: 1px solid #fff;
+      }
+    }
+  }
+  .copy-right {
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -0.04em;
+    font-size: 1.25rem;
+  }
+}
+
+.footer__guide {
+  min-width: 20rem;
+
+  .guide-title {
+    @include footer-sub-title;
+  }
+  .guide-item {
+    a {
+      font-size: 1.25rem;
+      color: #fff;
+      display: block;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid;
+    }
+  }
+}
+
+.footer__contact-us {
+  .contact-us-title {
+    @include footer-sub-title;
+  }
+
+  .content-box {
+    .title {
+      font-size: 1.875rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.625rem;
+    }
+    .desc {
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+    }
+
+    .info {
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+      margin-top: 2rem;
     }
   }
 }
