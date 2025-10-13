@@ -115,7 +115,6 @@ $inner-margin: 5rem;
 
 // pc헤더 구현시작
 .top-bar {
-  height: 100px;
   position: fixed;
   top: 45px;
   inset-inline: 0;
@@ -252,6 +251,7 @@ $inner-margin: 5rem;
   }
 }
 /* pc 헤더 구현 끝 */
+
 // mobile 헤더  구현 시작
 .mobile-top-bar {
   display: none;
@@ -360,6 +360,42 @@ $inner-margin: 5rem;
 /* 메인 배너 구현 끝 */
 
 .product-list-wrap {
+  @media (1024px >= width) {
+    .swiper {
+      overflow: visible;
+
+      .swiper-slide {
+        width: 430px;
+      }
+    }
+
+    .prod-img-box {
+      img {
+        height: 520px;
+      }
+    }
+
+    .text-box {
+      a {
+        font-size: 1rem !important;
+      }
+    }
+
+    .price-box {
+      font-size: 1rem !important;
+    }
+
+    .discount-box {
+      font-size: 0.75rem !important;
+      // padding: 0.3rem 1rem !important;
+    }
+  }
+
+  @media (480px >= width) {
+    .swiper-slide {
+      width: 360px !important;
+    }
+  }
   .prod-img-box {
     a {
       display: block;
@@ -416,6 +452,10 @@ $inner-margin: 5rem;
 }
 .marketing-section {
   margin-block: 9.375rem;
+
+  @media (1024px >= width) {
+    margin-block: 3.5rem;
+  }
 }
 .marquees_wrapper {
   // 	글자가 뚝뚝 끊기듯이 움직이는건 너비가 없었기 때문 너비값 주기
@@ -453,6 +493,11 @@ $inner-margin: 5rem;
       color: $color_main;
       letter-spacing: -0.04em;
       white-space: nowrap;
+
+      @media (1024px >= width) {
+        font-size: 7rem;
+        font-weight: 400;
+      }
     }
   }
 }
@@ -489,6 +534,30 @@ $inner-margin: 5rem;
   }
 }
 
+@mixin content-title($font-size: 3.75rem, $position: absolute) {
+  font-size: $font-size;
+  font-weight: 700;
+  color: $color-main;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  word-break: keep-all;
+  position: $position;
+  white-space: nowrap;
+  top: 10%;
+  left: 7%;
+}
+
+@mixin content-des($font-size: 1.25rem, $position: absolute) {
+  position: $position;
+  font-size: $font-size;
+  line-height: 1.5;
+  color: $color-main;
+  letter-spacing: -0.04em;
+  word-break: keep-all;
+  top: 27%;
+  left: 5%;
+}
+
 .marketing__content-box {
   margin-top: 6.25rem;
   display: flex;
@@ -501,6 +570,44 @@ $inner-margin: 5rem;
     // grid-template-column: 1fr 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 2rem;
+
+    @media (720px >= width) {
+      display: none;
+    }
+
+    .img-box {
+      width: 100%;
+
+      img {
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+    }
+
+    .text-box {
+      position: absolute;
+      inset: 0;
+
+      .title {
+        @include content-title();
+
+        @media (1520px >= width) {
+          font-size: 2.25rem;
+        }
+      }
+
+      .des {
+        @include content-des();
+
+        @media (1520px >= width) {
+          font-size: 1rem;
+        }
+      }
+
+      .more-box {
+        @include more-box();
+      }
+    }
   }
 
   .grid-item {
@@ -509,64 +616,41 @@ $inner-margin: 5rem;
     position: relative;
   }
 
-  .img-box {
-    width: 100%;
+  .mobile-content-wrap {
+    display: none;
+    flex-direction: column;
+    gap: 3rem;
 
-    img {
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-  }
-
-  .text-box {
-    position: absolute;
-    inset: 0;
-
-    .title {
-      font-size: 3.75rem;
-      font-weight: 700;
-      color: $color-main;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
-      word-break: keep-all;
-      position: absolute;
-      top: 10%;
-      left: 7%;
+    @media (720px >= width) {
+      display: flex;
     }
 
-    .des {
-      position: absolute;
-      font-size: 1.25rem;
-      line-height: 1.5;
-      color: $color-main;
-      letter-spacing: -0.04em;
-      word-break: keep-all;
-      top: 27%;
-      left: 5%;
+    .content-top,
+    .content-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .text-box {
+      .title {
+        @include content-title(1.8rem, static);
+        margin-bottom: 0;
+      }
+
+      .des {
+        @include content-des(1rem, static);
+      }
     }
 
     .more-box {
-      position: absolute;
-      bottom: 10%;
-      left: 5%;
+      @include more-box();
+      position: static;
+      margin-top: 2.5rem;
 
       a {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: $color-main;
-        letter-spacing: -0.04em;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.75rem 2rem;
-        border: 1px solid $color-main;
-        border-radius: 100px;
-        transition: all 0.5s;
-
-        &:hover {
-          color: #fff;
-          background-color: $color-main;
-        }
+        font-size: 0.8rem;
+        padding: 0.35rem 1.3rem;
       }
     }
   }
