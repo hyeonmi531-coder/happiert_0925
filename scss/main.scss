@@ -87,6 +87,29 @@ $inner-margin: 5rem;
   }
 }
 
+// 스크롤바 커스텀
+/* 스크롤바 전체 */
+
+::-webkit-scrollbar {
+  width: 5px; /*세로 스크롤바 너비 */
+  height: 3px; /*가로 스크롤바 너비 */
+
+  @media (1023px >= width) {
+    width: 3px;
+  }
+}
+
+/* 스크롤바 트랙 (배경) */
+::-webkit-scrollbar-track {
+  background-color: #e7e7e7;
+}
+
+/* 스크롤바 핸들 (움직이는 부분) */
+::-webkit-scrollbar-thumb {
+  background: $color-main;
+  border-radius: 50px;
+}
+
 /* 헤더 구현 시작 */
 .header-top-banner {
   position: fixed;
@@ -360,18 +383,12 @@ $inner-margin: 5rem;
 
 .product-list-wrap {
   @media (1024px >= width) {
-    .swiper {
-      overflow: visible;
-
-      .swiper-slide {
-        width: 430px;
-      }
+    .inner {
+      margin-inline: 4rem;
     }
 
-    .prod-img-box {
-      img {
-        height: 520px;
-      }
+    .swiper {
+      overflow: visible;
     }
 
     .text-box {
@@ -390,11 +407,6 @@ $inner-margin: 5rem;
     }
   }
 
-  @media (480px >= width) {
-    .swiper-slide {
-      width: 360px !important;
-    }
-  }
   .prod-img-box {
     a {
       display: block;
