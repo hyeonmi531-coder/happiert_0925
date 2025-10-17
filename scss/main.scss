@@ -162,7 +162,6 @@ $inner-margin: 5rem;
     }
     .util-bar {
       display: block;
-      flex-glow: 1;
     }
   }
 
@@ -663,6 +662,22 @@ $inner-margin: 5rem;
     justify-content: space-between;
     gap: 5.313rem;
     margin-bottom: 9.375rem;
+
+    @media (720px >= width) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (720px >= width) {
+    .pc-view {
+      display: none !important;
+    }
+
+    .mobile-view {
+      display: flex !important;
+      justify-content: center;
+      gap: 0.5rem 0 !important;
+    }
   }
 
   .text-box {
@@ -676,11 +691,34 @@ $inner-margin: 5rem;
     flex-wrap: wrap;
     gap: 0 1.5rem;
 
+    @media (1024px >= width) {
+      font-size: 5.5rem;
+    }
+
+    @media (720px >= width) {
+      font-size: 4.5rem;
+    }
+
+    @media (480px >= width) {
+      font-size: 2.8rem;
+    }
     .badge {
       display: inline-flex;
       padding: 1.2rem 5.45rem;
       border: 2px solid $color-main;
       border-radius: 100px;
+
+      @media (1024px >= width) {
+        padding: 0.3rem 3.45rem;
+      }
+
+      @media (720px >= width) {
+        padding: 0.15rem 2.45rem;
+      }
+
+      @media (480px >= width) {
+        padding: 0.05rem 1.45rem;
+      }
     }
   }
 
@@ -704,6 +742,27 @@ $inner-margin: 5rem;
       }
     }
   }
+
+  .text-box.mobile-view {
+    display: none;
+
+    @media (1024px >= width) {
+      .mobile-icon-box {
+        width: 10rem;
+      }
+    }
+
+    @media (720px >= width) {
+      .mobile-icon-box {
+        width: 7rem;
+      }
+    }
+    @media (480px >= width) {
+      .mobile-icon-box {
+        width: 4rem;
+      }
+    }
+  }
 }
 
 .content-bottom-wrap {
@@ -713,6 +772,13 @@ $inner-margin: 5rem;
   background-size: cover;
   min-height: 740px;
   position: relative;
+
+  @media (720px >= width) {
+    min-height: 540px;
+  }
+  @media (480px >= width) {
+    min-height: 320px;
+  }
 
   .content-bottom__text-box {
     position: absolute;
@@ -728,6 +794,13 @@ $inner-margin: 5rem;
       color: #fff;
       letter-spacing: -0.04em;
       margin-bottom: 1.125rem;
+
+      @media (720px >= width) {
+        font-size: 2.75rem;
+      }
+      @media (480px >= width) {
+        font-size: 2rem;
+      }
     }
 
     .des {
@@ -736,15 +809,29 @@ $inner-margin: 5rem;
       letter-spacing: -0.04em;
       margin-bottom: 5rem;
       text-align: center;
+
+      @media (720px >= width) {
+        font-size: 1.1rem;
+      }
+      @media (480px >= width) {
+        font-size: 0.9rem;
+      }
     }
 
     .more-box {
-      @include more-box();
+      @include more-box(#fff, $color-main);
+      position: static;
+
+      @media (480px >= width) {
+        a {
+          font-size: 0.9rem;
+          padding: 0.35rem 1.3rem;
+        }
+      }
     }
   }
 }
-
-#footer {
+@mixin common-footer() {
   background-color: $color-main;
 
   .inner {
@@ -752,10 +839,55 @@ $inner-margin: 5rem;
     // 위에 마진값 적용시킨게 있으니까 기본값으로 둠
     padding: 6.25rem 5rem 8.75rem;
     // 자식요소의 padding값은 부모인 #footer의 높이로 작용한다! 그래서 푸터에 높이값 따로 안줘도 높이가 적용됨
+
+    @media (1590px >= width) {
+      padding: 4.25rem 3rem 6.75rem;
+    }
+
+    @media (720px >= width) {
+      padding: 2.25rem 1.5rem 4.75rem;
+    }
   }
 
   .logo-box {
     margin-bottom: 3.75rem;
+
+    @media (720px >= width) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (720px >= width) {
+    .footer__logo {
+      display: block;
+      width: 5.5rem;
+    }
+    .footer__info {
+      .pc-text {
+        display: none !important;
+      }
+
+      .info-box {
+        .bar {
+          display: inline-block;
+          height: 10px;
+          width: 1px;
+          background-color: #fff;
+        }
+      }
+
+      .info-text::after {
+        display: none;
+      }
+    }
+  }
+}
+
+#pc-footer {
+  @include common-footer();
+
+  @media (720px >= width) {
+    display: none;
   }
 }
 
@@ -765,6 +897,14 @@ $inner-margin: 5rem;
   color: #fff;
   letter-spacing: -0.04em;
   margin-bottom: 1.5rem;
+
+  @media (1590px >= width) {
+    font-size: 1.4rem;
+  }
+
+  @media (1240px >= width) {
+    font-size: 1.2rem;
+  }
 }
 
 .footer__info {
@@ -774,10 +914,12 @@ $inner-margin: 5rem;
     }
 
     &-box {
-      letter-spacing: -0.04em;
-      position: relative;
-      padding-inline: 0.3rem;
-      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+
+      @media (720px >= width) {
+        padding-block: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
     }
 
     &-text {
@@ -790,6 +932,14 @@ $inner-margin: 5rem;
       padding-inline: 0.3rem;
       // padding-inline은 아래 after로 표현한 막대기 바 위치조정위함
       position: relative;
+
+      @media (1590px >= width) {
+        font-size: 1rem;
+      }
+
+      @media (720px >= width) {
+        font-size: 0.8rem;
+      }
 
       &:not(.not-bar)::after {
         // not-bar가 없는 클래스에만 적용하겠다는 것
@@ -811,6 +961,10 @@ $inner-margin: 5rem;
     color: #fff;
     letter-spacing: -0.04em;
     font-size: 1.25rem;
+
+    @media (1590px >= width) {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -821,17 +975,38 @@ $inner-margin: 5rem;
     @include footer-sub-title;
   }
   .guide-item {
+    @media (720px >= width) {
+      margin-block: 0.7rem;
+
+      ul {
+        display: flex;
+        gap: 1.5rem;
+      }
+    }
+
     a {
       font-size: 1.25rem;
       color: #fff;
       display: block;
       padding: 0.625rem 0;
       border-bottom: 1px solid;
+
+      @media (1590px >= width) {
+        font-size: 1rem;
+      }
+
+      @media (720px >= width) {
+        border: none;
+        font-size: 0.8rem;
+      }
     }
   }
 }
 
 .footer__contact-us {
+  @media (1024px >= width) {
+    display: none;
+  }
   .contact-us-title {
     @include footer-sub-title;
   }
@@ -842,11 +1017,19 @@ $inner-margin: 5rem;
       color: #fff;
       letter-spacing: -0.04em;
       margin-bottom: 0.625rem;
+
+      @media (1590px >= width) {
+        font-size: 1.3rem;
+      }
     }
     .desc {
       font-size: 1.25rem;
       color: #fff;
       letter-spacing: -0.04em;
+
+      @media (1590px >= width) {
+        font-size: 1rem;
+      }
     }
 
     .info {
@@ -854,6 +1037,24 @@ $inner-margin: 5rem;
       color: #fff;
       letter-spacing: -0.04em;
       margin-top: 2rem;
+
+      @media (1590px >= width) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+#mobile-footer {
+  @include common-footer();
+
+  @media (720px >= width) {
+    display: block;
+  }
+  .copy-right-box {
+    .copy-right {
+      font-size: 0.8rem;
+      color: #fff;
     }
   }
 }
