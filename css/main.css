@@ -1018,6 +1018,7 @@ html > body {
 
 #mobile-footer {
   background-color: #be201f;
+  display: none;
 }
 #mobile-footer .inner {
   margin: 0;

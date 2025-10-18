@@ -1059,7 +1059,7 @@ $inner-margin: 5rem;
 
 #mobile-footer {
   @include common-footer();
-
+  display: none;
   @media (720px >= width) {
     display: block;
   }
